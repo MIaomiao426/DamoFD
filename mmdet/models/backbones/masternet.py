@@ -86,7 +86,7 @@ class MasterNet(PlainNet.PlainNet):
         for block_id, the_block in enumerate(self.block_list):
             output = the_block(output)
             #import pdb; pdb.set_trace()
-            dowsample_ratio = round(image_size / output.shape[2])
+            dowsample_ratio = torch.round(image_size / output.shape[2])
             if dowsample_ratio == target_downsample_ratio:
                 stage_features_list.append(output)
                 target_downsample_ratio *= 2
